@@ -87,17 +87,14 @@ to the contract already deployed on the live testnet. The test calls `inc()` and
 `incBy()` and asserts `count()` increases (covering both the write and view
 functions).
 
-Because it sends real transactions (costs PAS), it is **opt-in**:
-
 ```bash
-bun run test         # skips the write test (no transactions)
-bun run test:write   # runs it
+bun run test
 ```
 
-hardhat-viem routes calls through the configured account, so it needs a funded
-`PRIVATE_KEY` via an env var or the **dev keystore**
+It **sends real transactions (costs PAS)**, so it needs a funded `PRIVATE_KEY`
+via an env var or the **dev keystore**
 (`npx hardhat keystore set PRIVATE_KEY --dev`) — the production keystore isn't
-read during tests. Without a key it's skipped.
+read during tests.
 
 > PolkaVM contracts can't run on Hardhat's built-in EDR (EVM) simulator, so this
 > is an integration test against the live testnet, not a local unit test.
