@@ -8,8 +8,6 @@
     "clean": "hardhat clean",
     "deploy": "hardhat run scripts/deploy.ts",
     "test": "vitest run",
-    "test:testnet": "vitest run testnet",
-    "test:local": "vitest run local",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
