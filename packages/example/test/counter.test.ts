@@ -5,23 +5,16 @@ import { network } from 'hardhat'
 import { getAddress } from 'viem'
 
 // Typed-contract integration test against the Counter deployed on Polkadot Hub
-// TestNet by `bun run deploy`. It sends real transactions (costs PAS), so it is
-// opt-in: run it with `bun run test:write` (which sets RUN_WRITE_TESTS=1). Needs
-// a funded PRIVATE_KEY via an env var or the dev keystore.
+// TestNet by `bun run deploy`. `bun run test` sends real transactions (costs
+// PAS) with the configured account — a funded PRIVATE_KEY must be available via
+// an env var or the dev keystore.
 const ADDRESS = getAddress('0xfb619b7484718335f553a8883e75fc7c9cac2b9b')
 
 describe('Counter on Polkadot Hub TestNet', () => {
   it(
     'inc() and incBy() increase count() (write functions)',
     { timeout: 180_000 },
-    async (t) => {
-      if (process.env.RUN_WRITE_TESTS !== '1') {
-        t.skip(
-          'opt-in only — run `bun run test:write` (sends real txs, costs PAS)',
-        )
-        return
-      }
-
+    async () => {
       const { viem } = await network.getOrCreate('polkadotHubTestnet')
       const publicClient = await viem.getPublicClient()
       const counter = await viem.getContractAt('Counter', ADDRESS)

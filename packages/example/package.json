@@ -8,7 +8,6 @@
     "clean": "hardhat clean",
     "deploy": "hardhat ignition deploy ignition/modules/Counter.ts --network polkadotHubTestnet",
     "test": "hardhat test",
-    "test:write": "RUN_WRITE_TESTS=1 hardhat test",
     "typecheck": "hardhat compile && tsc --noEmit"
   },
   "devDependencies": {
