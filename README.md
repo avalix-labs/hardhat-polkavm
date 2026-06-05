@@ -1,23 +1,33 @@
-# tsdown-starter
+# hardhat-polkadot (Hardhat 3)
 
-A starter for creating a TypeScript package.
+A Hardhat **v3** plugin for Polkadot: compile Solidity to **PolkaVM** bytecode
+with Parity's `resolc` (revive) compiler.
+
+The official [`paritytech/hardhat-polkadot`](https://github.com/paritytech/hardhat-polkadot)
+only supports Hardhat 2. This is a simpler reimplementation built on the
+[Hardhat 3 plugin system](https://hardhat.org/docs/plugin-development).
+
+## Monorepo layout
+
+| Package | Description |
+| --- | --- |
+| [`packages/hardhat-polkadot`](packages/hardhat-polkadot) | The plugin. |
+| [`packages/example`](packages/example) | A minimal Hardhat 3 project that uses the plugin. |
+
+Managed with [Bun](https://bun.sh) workspaces and built with
+[tsdown](https://tsdown.dev).
 
 ## Development
 
-- Install dependencies:
-
 ```bash
-npm install
+bun install        # install all workspaces
+bun run build      # build the plugin (packages/hardhat-polkadot)
+bun run test       # run the plugin unit tests
+
+# Try it end-to-end:
+cd packages/example
+bun run compile    # npx hardhat compile -> PolkaVM artifacts
 ```
 
-- Run the unit tests:
-
-```bash
-npm run test
-```
-
-- Build the library:
-
-```bash
-npm run build
-```
+See [`packages/hardhat-polkadot/README.md`](packages/hardhat-polkadot/README.md)
+for usage and configuration.
