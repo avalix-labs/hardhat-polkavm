@@ -21,16 +21,18 @@ you can confirm it starts with the `PVM\0` magic (`0x50564d00…`).
 2. **Fund it** with test PAS from the faucet:
    <https://faucet.polkadot.io/> (select *Polkadot Hub TestNet*).
 
-3. **Provide the private key** as the `PRIVATE_KEY` environment variable, in the
-   same shell you run the deploy from:
+3. **Store the private key** in Hardhat's encrypted keystore (provided by the
+   `@nomicfoundation/hardhat-keystore` plugin):
 
    ```bash
-   export PRIVATE_KEY=0xyourprivatekey
+   npx hardhat keystore set PRIVATE_KEY
    ```
 
-   (For encrypted storage instead of an env var, add the
-   `@nomicfoundation/hardhat-keystore` plugin and run
-   `npx hardhat keystore set PRIVATE_KEY`.)
+   You'll be prompted for the value and, the first time, a password to encrypt
+   the keystore. On deploy you'll be asked for that password to decrypt it.
+
+   > An exported `PRIVATE_KEY` environment variable also works and takes
+   > precedence over the keystore.
 
 4. **Deploy:**
 
