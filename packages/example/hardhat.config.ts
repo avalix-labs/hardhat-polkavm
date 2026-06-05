@@ -1,8 +1,9 @@
+import hardhatKeystore from '@nomicfoundation/hardhat-keystore'
 import { configVariable, defineConfig } from 'hardhat/config'
 import hardhatPolkadot from 'hardhat-polkadot'
 
 export default defineConfig({
-  plugins: [hardhatPolkadot],
+  plugins: [hardhatPolkadot, hardhatKeystore],
   solidity: '0.8.29',
   // Presence of this block switches Solidity compilation from solc (EVM) to
   // resolc (PolkaVM). Remove it to compile for the EVM as usual.
@@ -23,7 +24,8 @@ export default defineConfig({
       type: 'http',
       url: 'https://services.polkadothub-rpc.com/testnet',
       chainId: 420420417,
-      // Set PRIVATE_KEY before deploying — see the README.
+      // Stored in the encrypted keystore: `npx hardhat keystore set PRIVATE_KEY`
+      // (see the README). An exported PRIVATE_KEY env var also works.
       accounts: [configVariable('PRIVATE_KEY')],
     },
   },

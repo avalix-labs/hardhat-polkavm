@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-keystore": "^3.0.12",
     "@types/node": "^22.15.3",
     "hardhat": "^3.4.0",
     "hardhat-polkadot": "workspace:*",
