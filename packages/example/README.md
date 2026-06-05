@@ -21,18 +21,20 @@ you can confirm it starts with the `PVM\0` magic (`0x50564d00…`).
 2. **Fund it** with test PAS from the faucet:
    <https://faucet.polkadot.io/> (select *Polkadot Hub TestNet*).
 
-3. **Store the private key** in Hardhat's encrypted keystore (provided by the
-   `@nomicfoundation/hardhat-keystore` plugin):
+3. **Store the private key** in Hardhat's keystore (provided by the
+   `@nomicfoundation/hardhat-keystore` plugin). For this testnet example, use
+   the **development keystore** — it's read by both `deploy` and `test` and
+   doesn't prompt for a password:
 
    ```bash
-   npx hardhat keystore set PRIVATE_KEY
+   npx hardhat keystore set PRIVATE_KEY --dev
    ```
 
-   You'll be prompted for the value and, the first time, a password to encrypt
-   the keystore. On deploy you'll be asked for that password to decrypt it.
-
-   > An exported `PRIVATE_KEY` environment variable also works and takes
-   > precedence over the keystore.
+   > Alternatives: an exported `PRIVATE_KEY` env var (takes precedence over the
+   > keystore), or the password-protected production keystore
+   > (`npx hardhat keystore set PRIVATE_KEY`). Note the **production keystore is
+   > not read during `hardhat test`** (Hardhat avoids password prompts mid-test),
+   > so it works for deploy but not for the write test below.
 
 4. **Deploy** with Hardhat Ignition:
 
@@ -91,13 +93,10 @@ bun run test
 - **Read tests** — always run, no account or funds: the deployed address has
   PolkaVM bytecode and `count()` is callable.
 - **Write test** (`inc()` / `incBy()`) — runs only when a **funded**
-  `PRIVATE_KEY` is available, via an env var or the development keystore
-  (`npx hardhat keystore set PRIVATE_KEY --dev`). It sends real transactions
-  (costs PAS) and asserts `count()` increases; it is **skipped** otherwise.
-
-  ```bash
-  PRIVATE_KEY=0xyourfundedkey bun run test
-  ```
+  `PRIVATE_KEY` is available. It reuses the same key from the Deploy step (the
+  **dev keystore** or an env var — not the production keystore). It sends real
+  transactions (costs PAS) and asserts `count()` increases; it is **skipped**
+  otherwise.
 
 > PolkaVM contracts can't run on Hardhat's built-in EDR (EVM) simulator, so
 > these are integration tests against the live testnet, not local unit tests.
