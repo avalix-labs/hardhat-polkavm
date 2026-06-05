@@ -21,16 +21,16 @@ you can confirm it starts with the `PVM\0` magic (`0x50564d00…`).
 2. **Fund it** with test PAS from the faucet:
    <https://faucet.polkadot.io/> (select *Polkadot Hub TestNet*).
 
-3. **Provide the private key.** Copy `.env.example` to `.env` and set
-   `PRIVATE_KEY` — `hardhat.config.ts` auto-loads `.env`:
+3. **Provide the private key** as the `PRIVATE_KEY` environment variable, in the
+   same shell you run the deploy from:
 
    ```bash
-   cp .env.example .env
-   # then edit .env: PRIVATE_KEY=0xyourprivatekey
+   export PRIVATE_KEY=0xyourprivatekey
    ```
 
-   Alternatively, export it in your shell (`export PRIVATE_KEY=0x...`) or use
-   the Hardhat keystore (`npx hardhat keystore set PRIVATE_KEY`).
+   (For encrypted storage instead of an env var, add the
+   `@nomicfoundation/hardhat-keystore` plugin and run
+   `npx hardhat keystore set PRIVATE_KEY`.)
 
 4. **Deploy:**
 
