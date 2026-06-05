@@ -15,10 +15,10 @@
     "@nomicfoundation/hardhat-keystore": "^3.0.12",
     "@nomicfoundation/hardhat-node-test-runner": "^3.0.17",
     "@nomicfoundation/hardhat-viem": "^3.0.9",
-    "@types/node": "^22.15.3",
-    "hardhat": "^3.4.0",
+    "@types/node": "^25.9.1",
+    "hardhat": "^3.8.0",
     "hardhat-polkadot": "workspace:*",
-    "typescript": "^5.8.3",
-    "viem": "^2.21.0"
+    "typescript": "^6.0.3",
+    "viem": "^2.52.2"
   }
 }
