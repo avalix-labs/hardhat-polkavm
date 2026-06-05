@@ -81,22 +81,23 @@ networks.
 
 ## Test
 
-Run the integration tests with `hardhat test` (Node.js test runner +
-[viem](https://viem.sh)):
+`test/counter.test.ts` uses `hardhat test` with a typed contract from
+`@nomicfoundation/hardhat-viem` (`viem.getContractAt('Counter', …)`), attaching
+to the contract already deployed on the live testnet.
 
 ```bash
-bun run test
+bun run test         # read test (count) — write test is skipped
+bun run test:write   # also runs the write test (sends real txs, costs PAS)
 ```
 
-`test/counter.test.ts` runs against the contract deployed on the live testnet:
+hardhat-viem routes calls through the configured account, so the tests need a
+`PRIVATE_KEY` available via an env var or the **dev keystore**
+(`npx hardhat keystore set PRIVATE_KEY --dev`) — the production keystore isn't
+read during tests. Without a key the suite is skipped.
 
-- **Read tests** — always run, no account or funds: the deployed address has
-  PolkaVM bytecode and `count()` is callable.
-- **Write test** (`inc()` / `incBy()`) — runs only when a **funded**
-  `PRIVATE_KEY` is available. It reuses the same key from the Deploy step (the
-  **dev keystore** or an env var — not the production keystore). It sends real
-  transactions (costs PAS) and asserts `count()` increases; it is **skipped**
-  otherwise.
+- **`reads count()`** — calls the `count()` view function (free).
+- **`inc()` / `incBy()`** — opt-in (`bun run test:write`); sends real
+  transactions and asserts `count()` increases. Needs a **funded** account.
 
 > PolkaVM contracts can't run on Hardhat's built-in EDR (EVM) simulator, so
 > these are integration tests against the live testnet, not local unit tests.
