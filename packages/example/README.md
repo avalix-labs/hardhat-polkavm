@@ -68,3 +68,23 @@ networks.
 > EIP-1193 provider (`scripts/deploy.ts`), so no extra deploy library is
 > required. If the deploy fails with error code `1010`, the account has no PAS —
 > fund it and retry.
+
+## Test
+
+Two integration tests live in `test/` (run with [Vitest](https://vitest.dev) +
+[viem](https://viem.sh)):
+
+```bash
+bun run test           # run all (testnet runs; local skips if no node)
+bun run test:testnet   # only the live-testnet test
+bun run test:local     # only the local-node test
+```
+
+- **`counter.testnet.test.ts`** — read-only integration against the **live
+  testnet**. Confirms the contract deployed at `0xfb619b…` has PolkaVM bytecode
+  and that `count()` is callable. Needs no account and no funds.
+- **`counter.local.test.ts`** — deploy + interact against a **local PolkaVM
+  node** (`http://localhost:8545`). PolkaVM contracts can't run on Hardhat's
+  built-in EDR (EVM) simulator, so this needs a local PolkaVM node exposing an
+  Ethereum JSON-RPC with an unlocked dev account. It is **skipped automatically**
+  when no such node is reachable (or the project hasn't been compiled yet).
