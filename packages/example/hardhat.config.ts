@@ -1,9 +1,10 @@
+import hardhatIgnition from '@nomicfoundation/hardhat-ignition'
 import hardhatKeystore from '@nomicfoundation/hardhat-keystore'
 import { configVariable, defineConfig } from 'hardhat/config'
 import hardhatPolkadot from 'hardhat-polkadot'
 
 export default defineConfig({
-  plugins: [hardhatPolkadot, hardhatKeystore],
+  plugins: [hardhatPolkadot, hardhatKeystore, hardhatIgnition],
   solidity: '0.8.29',
   // Presence of this block switches Solidity compilation from solc (EVM) to
   // resolc (PolkaVM). Remove it to compile for the EVM as usual.
