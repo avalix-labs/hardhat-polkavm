@@ -16,6 +16,7 @@
         "@nomicfoundation/hardhat-ignition": "^3.1.7",
         "@nomicfoundation/hardhat-keystore": "^3.0.12",
         "@nomicfoundation/hardhat-node-test-runner": "^3.0.17",
+        "@nomicfoundation/hardhat-viem": "^3.0.9",
         "@types/node": "^22.15.3",
         "hardhat": "^3.4.0",
         "hardhat-polkadot": "workspace:*",
@@ -207,6 +208,8 @@
     "@nomicfoundation/hardhat-vendored": ["@nomicfoundation/hardhat-vendored@3.0.4", "", {}, "sha512-RO8Otj1FvRvxJmXzkxh1vTwK/+cqSVPYLqY6RrWkmzHEEcxnAwAFsBYdW7xyTEyW/pVbSSNd2gs3aoGdGZaoNA=="],
 
     "@nomicfoundation/hardhat-verify": ["@nomicfoundation/hardhat-verify@3.0.19", "", { "dependencies": { "@ethersproject/abi": "^5.8.0", "@nomicfoundation/hardhat-errors": "^3.0.15", "@nomicfoundation/hardhat-utils": "^4.1.2", "@nomicfoundation/hardhat-zod-utils": "^3.0.5", "cbor2": "^1.9.0", "zod": "^3.23.8" }, "peerDependencies": { "hardhat": "^3.8.0" } }, "sha512-UB+ZQg283DRAnK2Uej1uyqPy/CtdWkcr9JxJEb1JSIcqQppVTYeUM9X51QC88bXnuROr2xjwvXkMKCe/QRVb0A=="],
+
+    "@nomicfoundation/hardhat-viem": ["@nomicfoundation/hardhat-viem@3.0.9", "", { "dependencies": { "@nomicfoundation/hardhat-errors": "^3.0.15", "@nomicfoundation/hardhat-utils": "^4.1.2" }, "peerDependencies": { "hardhat": "^3.8.0", "viem": "^2.47.6" } }, "sha512-GtQ7l55C70Jj80yrZGdW7Kah0vPmEje29G/xVfcxchVxRRFdj1XyFZFn+7e53b11qhHMWDB787pVN+I8YZae3w=="],
 
     "@nomicfoundation/hardhat-zod-utils": ["@nomicfoundation/hardhat-zod-utils@3.0.5", "", { "dependencies": { "@nomicfoundation/hardhat-errors": "^3.0.13", "@nomicfoundation/hardhat-utils": "^4.1.2" }, "peerDependencies": { "zod": "^3.23.8" } }, "sha512-A1G9Jcizf/vYcGMtqkf+st94zBPTDB+bXXlojOMu77gmBZYbywY0k7hdRM2B4uJY+8nM0oe0sNVGVkARITXdcw=="],
 

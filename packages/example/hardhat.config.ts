@@ -1,6 +1,7 @@
 import hardhatIgnition from '@nomicfoundation/hardhat-ignition'
 import hardhatKeystore from '@nomicfoundation/hardhat-keystore'
 import hardhatNodeTestRunner from '@nomicfoundation/hardhat-node-test-runner'
+import hardhatViem from '@nomicfoundation/hardhat-viem'
 import { configVariable, defineConfig } from 'hardhat/config'
 import hardhatPolkadot from 'hardhat-polkadot'
 
@@ -10,6 +11,7 @@ export default defineConfig({
     hardhatKeystore,
     hardhatIgnition,
     hardhatNodeTestRunner,
+    hardhatViem,
   ],
   solidity: '0.8.29',
   // Presence of this block switches Solidity compilation from solc (EVM) to

@@ -8,12 +8,14 @@
     "clean": "hardhat clean",
     "deploy": "hardhat ignition deploy ignition/modules/Counter.ts --network polkadotHubTestnet",
     "test": "hardhat test",
-    "typecheck": "tsc --noEmit"
+    "test:write": "RUN_WRITE_TESTS=1 hardhat test",
+    "typecheck": "hardhat compile && tsc --noEmit"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ignition": "^3.1.7",
     "@nomicfoundation/hardhat-keystore": "^3.0.12",
     "@nomicfoundation/hardhat-node-test-runner": "^3.0.17",
+    "@nomicfoundation/hardhat-viem": "^3.0.9",
     "@types/node": "^22.15.3",
     "hardhat": "^3.4.0",
     "hardhat-polkadot": "workspace:*",
