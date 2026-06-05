@@ -1,39 +1,21 @@
 {
-  "name": "tsdown-starter",
+  "name": "hardhat-polkadot-monorepo",
+  "private": true,
   "type": "module",
   "version": "0.0.0",
-  "description": "A starter for creating a TypeScript package.",
-  "author": "Author Name <author.name@mail.com>",
+  "description": "Hardhat 3 plugin for Polkadot (compile Solidity to PolkaVM via resolc).",
   "license": "MIT",
-  "homepage": "https://github.com/author/library#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/author/library.git"
-  },
-  "bugs": {
-    "url": "https://github.com/author/library/issues"
-  },
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "dist"
+  "workspaces": [
+    "packages/*"
   ],
   "scripts": {
-    "build": "tsdown",
-    "dev": "tsdown --watch",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "release": "bumpp",
-    "prepublishOnly": "pnpm run build"
+    "build": "bun run --filter hardhat-polkadot build",
+    "dev": "bun run --filter hardhat-polkadot dev",
+    "test": "bun run --filter hardhat-polkadot test",
+    "typecheck": "bun run --filter '*' typecheck"
   },
   "devDependencies": {
-    "@types/node": "^25.6.2",
-    "@typescript/native-preview": "7.0.0-dev.20260509.2",
-    "bumpp": "^11.1.0",
-    "tsdown": "^0.22.0",
-    "typescript": "^6.0.3",
-    "vitest": "^4.1.5"
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
   }
 }
