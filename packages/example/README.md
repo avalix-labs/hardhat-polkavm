@@ -34,20 +34,27 @@ you can confirm it starts with the `PVM\0` magic (`0x50564d00…`).
    > An exported `PRIVATE_KEY` environment variable also works and takes
    > precedence over the keystore.
 
-4. **Deploy:**
+4. **Deploy** with Hardhat Ignition:
 
    ```bash
    bun run deploy
    ```
 
-   Expected output:
+   This runs `hardhat ignition deploy ignition/modules/Counter.ts --network
+   polkadotHubTestnet`. Confirm the prompt; expected output:
 
    ```text
-   Deploying Counter to polkadotHubTestnet ...
-   Deployer account: 0x….
-   Submitted deployment tx: 0x….
-   ✅ Counter deployed at 0x….
-      Explorer: https://blockscout-testnet.polkadot.io/address/0x….
+   Hardhat Ignition 🚀
+
+   Deploying [ CounterModule ]
+
+   Batch #1
+     Executed CounterModule#Counter
+
+   [ CounterModule ] successfully deployed 🚀
+
+   Deployed Addresses
+   CounterModule#Counter - 0x…
    ```
 
 ### Network details
@@ -64,10 +71,11 @@ you can confirm it starts with the `PVM\0` magic (`0x50564d00…`).
 See <https://docs.polkadot.com/smart-contracts/connect/> for the full list of
 networks.
 
-> **Tip:** deployment uses raw `eth_sendTransaction` over the network's
-> EIP-1193 provider (`scripts/deploy.ts`), so no extra deploy library is
-> required. If the deploy fails with error code `1010`, the account has no PAS —
-> fund it and retry.
+> **Tip:** deployment uses [Hardhat Ignition](https://hardhat.org/ignition)
+> (`ignition/modules/Counter.ts`). Ignition records deployments under
+> `ignition/deployments/`, so re-running `bun run deploy` won't redeploy a module
+> that already succeeded. If it fails with "insufficient funds", the account has
+> no PAS — fund it and retry.
 
 ## Test
 
