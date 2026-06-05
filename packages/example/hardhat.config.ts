@@ -3,11 +3,11 @@ import hardhatKeystore from '@nomicfoundation/hardhat-keystore'
 import hardhatNodeTestRunner from '@nomicfoundation/hardhat-node-test-runner'
 import hardhatViem from '@nomicfoundation/hardhat-viem'
 import { configVariable, defineConfig } from 'hardhat/config'
-import hardhatPolkadot from 'hardhat-polkadot'
+import hardhatPolkaVM from '@avalix/hardhat-polkavm'
 
 export default defineConfig({
   plugins: [
-    hardhatPolkadot,
+    hardhatPolkaVM,
     hardhatKeystore,
     hardhatIgnition,
     hardhatNodeTestRunner,

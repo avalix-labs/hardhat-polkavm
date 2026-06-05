@@ -1,4 +1,4 @@
-# hardhat-polkadot
+# @avalix/hardhat-polkavm
 
 A **Hardhat 3** plugin that compiles your Solidity contracts to **PolkaVM**
 bytecode using Parity's [`resolc`](https://github.com/paritytech/revive)
@@ -12,8 +12,8 @@ bytecode using Parity's [`resolc`](https://github.com/paritytech/revive)
 ## Install
 
 ```bash
-npm install --save-dev hardhat-polkadot
-# or: bun add -d hardhat-polkadot
+npm install --save-dev @avalix/hardhat-polkavm
+# or: bun add -d @avalix/hardhat-polkavm
 ```
 
 Requires `hardhat@^3.4.0`.
@@ -27,10 +27,10 @@ to `resolc` (PolkaVM) — there is no per-compiler `type` wiring to do.
 ```ts
 // hardhat.config.ts
 import { defineConfig } from "hardhat/config";
-import hardhatPolkadot from "hardhat-polkadot";
+import hardhatPolkaVM from "@avalix/hardhat-polkavm";
 
 export default defineConfig({
-  plugins: [hardhatPolkadot],
+  plugins: [hardhatPolkaVM],
   solidity: "0.8.29",
   resolc: {
     compilerSource: "npm",

@@ -1,5 +1,5 @@
 {
-  "name": "hardhat-polkadot-monorepo",
+  "name": "hardhat-polkavm-monorepo",
   "private": true,
   "type": "module",
   "version": "0.0.0",
@@ -9,9 +9,9 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "bun run --filter hardhat-polkadot build",
-    "dev": "bun run --filter hardhat-polkadot dev",
-    "test": "bun run --filter hardhat-polkadot test",
+    "build": "bun run --filter @avalix/hardhat-polkavm build",
+    "dev": "bun run --filter @avalix/hardhat-polkavm dev",
+    "test": "bun run --filter @avalix/hardhat-polkavm test",
     "typecheck": "bun run --filter '*' typecheck"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-# hardhat-polkadot (Hardhat 3)
+# @avalix/hardhat-polkavm (Hardhat 3)
 
 A Hardhat **v3** plugin for Polkadot: compile Solidity to **PolkaVM** bytecode
 with Parity's `resolc` (revive) compiler.
@@ -11,7 +11,7 @@ only supports Hardhat 2. This is a simpler reimplementation built on the
 
 | Package | Description |
 | --- | --- |
-| [`packages/hardhat-polkadot`](packages/hardhat-polkadot) | The plugin. |
+| [`packages/hardhat-polkavm`](packages/hardhat-polkavm) | The plugin. |
 | [`packages/example`](packages/example) | A minimal Hardhat 3 project that uses the plugin. |
 
 Managed with [Bun](https://bun.sh) workspaces and built with
@@ -21,7 +21,7 @@ Managed with [Bun](https://bun.sh) workspaces and built with
 
 ```bash
 bun install        # install all workspaces
-bun run build      # build the plugin (packages/hardhat-polkadot)
+bun run build      # build the plugin (packages/hardhat-polkavm)
 bun run test       # run the plugin unit tests
 
 # Try it end-to-end:
@@ -29,5 +29,5 @@ cd packages/example
 bun run compile    # npx hardhat compile -> PolkaVM artifacts
 ```
 
-See [`packages/hardhat-polkadot/README.md`](packages/hardhat-polkadot/README.md)
+See [`packages/hardhat-polkavm/README.md`](packages/hardhat-polkavm/README.md)
 for usage and configuration.

@@ -34,7 +34,7 @@ export function getResolcAssetName(): string {
 function getCacheDir(): string {
   const base =
     process.env.XDG_CACHE_HOME ?? path.join(os.homedir(), '.cache')
-  return path.join(base, 'hardhat-polkadot', 'resolc')
+  return path.join(base, 'hardhat-polkavm', 'resolc')
 }
 
 /** Deterministic on-disk location for a given resolc version (no I/O). */

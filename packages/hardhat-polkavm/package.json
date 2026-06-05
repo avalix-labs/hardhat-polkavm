@@ -1,5 +1,5 @@
 {
-  "name": "hardhat-polkadot",
+  "name": "@avalix/hardhat-polkavm",
   "version": "0.1.0",
   "description": "Hardhat 3 plugin to compile Solidity to PolkaVM (Polkadot) using the resolc / revive compiler.",
   "type": "module",

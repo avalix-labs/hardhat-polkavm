@@ -1,6 +1,6 @@
 # example
 
-A minimal Hardhat 3 project that uses [`hardhat-polkadot`](../hardhat-polkadot)
+A minimal Hardhat 3 project that uses [`@avalix/hardhat-polkavm`](../hardhat-polkavm)
 to compile a contract to PolkaVM and deploy it to **Polkadot Hub TestNet** (the
 Asset Hub smart-contract testnet).
 

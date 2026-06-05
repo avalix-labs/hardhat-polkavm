@@ -15,16 +15,16 @@ import { definePlugin } from 'hardhat/plugins'
  * present, every Solidity compiler is transparently switched from `solc` to
  * `resolc` — no per-compiler `type` wiring required.
  */
-const hardhatPolkadot: HardhatPlugin = definePlugin({
-  id: 'hardhat-polkadot',
-  npmPackage: 'hardhat-polkadot',
+const hardhatPolkaVM: HardhatPlugin = definePlugin({
+  id: 'hardhat-polkavm',
+  npmPackage: '@avalix/hardhat-polkavm',
   hookHandlers: {
     config: () => import('./internal/hooks/config.js'),
     solidity: () => import('./internal/hooks/solidity.js'),
   },
 })
 
-export default hardhatPolkadot
+export default hardhatPolkaVM
 
 export type {
   ResolcConfig,
