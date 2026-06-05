@@ -6,6 +6,7 @@
   "scripts": {
     "compile": "hardhat compile",
     "clean": "hardhat clean",
+    "deploy": "hardhat run scripts/deploy.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
