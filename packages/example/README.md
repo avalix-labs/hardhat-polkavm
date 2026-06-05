@@ -79,11 +79,25 @@ networks.
 
 ## Test
 
-`test/counter.testnet.test.ts` is a read-only integration test (using
-[Vitest](https://vitest.dev) + [viem](https://viem.sh)) that runs against the
-contract deployed on the live testnet — it checks the deployed address has
-PolkaVM bytecode and that `count()` is callable. No account or funds needed.
+Run the integration tests with `hardhat test` (Node.js test runner +
+[viem](https://viem.sh)):
 
 ```bash
 bun run test
 ```
+
+`test/counter.test.ts` runs against the contract deployed on the live testnet:
+
+- **Read tests** — always run, no account or funds: the deployed address has
+  PolkaVM bytecode and `count()` is callable.
+- **Write test** (`inc()` / `incBy()`) — runs only when a **funded**
+  `PRIVATE_KEY` is available, via an env var or the development keystore
+  (`npx hardhat keystore set PRIVATE_KEY --dev`). It sends real transactions
+  (costs PAS) and asserts `count()` increases; it is **skipped** otherwise.
+
+  ```bash
+  PRIVATE_KEY=0xyourfundedkey bun run test
+  ```
+
+> PolkaVM contracts can't run on Hardhat's built-in EDR (EVM) simulator, so
+> these are integration tests against the live testnet, not local unit tests.
