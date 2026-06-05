@@ -26,22 +26,6 @@ describe('Counter on Polkadot Hub TestNet', () => {
     { timeout: 60_000 },
   )
 
-  it('reads count() (view function)', { timeout: 60_000 }, async (t) => {
-    if (!available) {
-      t.skip(
-        'set PRIVATE_KEY (env var or `hardhat keystore set PRIVATE_KEY --dev`)',
-      )
-      return
-    }
-
-    const { viem } = await network.getOrCreate('polkadotHubTestnet')
-    const counter = await viem.getContractAt('Counter', ADDRESS)
-
-    const count = await counter.read.count()
-    assert.equal(typeof count, 'bigint')
-    assert.ok(count >= 0n)
-  })
-
   it(
     'inc() and incBy() increase count() (write functions)',
     { timeout: 180_000 },
