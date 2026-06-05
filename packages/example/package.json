@@ -1,0 +1,17 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "hardhat compile",
+    "clean": "hardhat clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "hardhat": "^3.4.0",
+    "hardhat-polkadot": "workspace:*",
+    "typescript": "^5.8.3"
+  }
+}
