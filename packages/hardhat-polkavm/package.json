@@ -4,6 +4,11 @@
   "description": "Hardhat 3 plugin to compile Solidity to PolkaVM (Polkadot) using the resolc / revive compiler.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avalix-labs/hardhat-polkavm",
+    "directory": "packages/hardhat-polkavm"
+  },
   "keywords": [
     "ethereum",
     "polkadot",
