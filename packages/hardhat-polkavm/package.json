@@ -41,8 +41,8 @@
     "hardhat": "^3.4.0"
   },
   "devDependencies": {
-    "@types/node": "^25.9.1",
-    "hardhat": "^3.8.0",
+    "@types/node": "^25.9.2",
+    "hardhat": "^3.9.0",
     "tsdown": "^0.22.2",
     "typescript": "^6.0.3",
     "vitest": "^4.1.8"
